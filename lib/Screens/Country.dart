@@ -39,7 +39,7 @@ class Country extends StatelessWidget {
                 color: Colors.white,
                 elevation: 10,
                 child: Center(
-                    child: SvgPicture.network(country['flag'],width: 200,height: 200,),
+                    child: SvgPicture.network(country['flag'],width: 200, height: 200,),
                 ),
               ),
             ),
