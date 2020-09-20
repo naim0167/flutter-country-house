@@ -1,3 +1,4 @@
+import 'package:country_house/Screens/countrymap.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -39,7 +40,11 @@ class Country extends StatelessWidget {
                 color: Colors.white,
                 elevation: 10,
                 child: Center(
-                    child: SvgPicture.network(country['flag'],width: 200, height: 200,),
+                  child: SvgPicture.network(
+                    country['flag'],
+                    width: 200,
+                    height: 200,
+                  ),
                 ),
               ),
             ),
@@ -50,11 +55,20 @@ class Country extends StatelessWidget {
                   title: country['currencies'][0]['name'].toString(),
                   color: Colors.blue),
             ),
-            FlipCard(
-              direction: FlipDirection.VERTICAL,
-              front: CountryCard(title: 'Show on map'),
-              back: CountryDetailCard(title: 'DHAKA'),
-            ),
+            GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (ctx) => CountryMap(),
+                    ),
+                  );
+                },
+                child: CountryCard(title: 'Show on map')),
+            // FlipCard(
+            //   direction: FlipDirection.VERTICAL,
+            //   front: CountryCard(title: 'Show on map'),
+            //   back: CountryDetailCard(title: 'DHAKA'),
+            // ),
           ],
         ),
       ),
