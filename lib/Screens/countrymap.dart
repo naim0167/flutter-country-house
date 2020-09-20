@@ -1,24 +1,29 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class CountryMap extends StatelessWidget {
   Completer<GoogleMapController> _controller = Completer();
-  static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
-  );
 
+
+  // final String name;
+  // final List latlng;
+  // CountryMap(this.name, this.latlng);
+
+static const routeName = '/country-map';
   @override
   Widget build(BuildContext context) {
+    final Map country = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
-        title: Text('Country Name'),
+        title: Text(country['name']),
       ),
       body: GoogleMap(
-        initialCameraPosition: _kGooglePlex,
+        initialCameraPosition: CameraPosition(
+          target: LatLng(country['latlng'][0], country['latlng'][1]),
+          zoom: 7,
+        ),
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },

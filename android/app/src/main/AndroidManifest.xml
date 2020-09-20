@@ -10,7 +10,7 @@
         android:label="country_house"
         android:icon="@mipmap/ic_launcher">
         <meta-data android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBHYF_292LUDl27yF8l0IPS7Q_WR1CErmc"/>
+            android:value="AIzaSyAm9tnTLG6EDthPo2K-I-bvepuuzA4_iuE"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
